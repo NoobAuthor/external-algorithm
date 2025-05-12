@@ -52,7 +52,7 @@ pip install matplotlib numpy pandas
 - Clonar el repositório:
 
 ```bash
-git clone <url-del-repositorio>
+git clone <https://github.com/NoobAuthor/external-algorithm>
 cd T1
 ```
 

@@ -80,10 +80,15 @@ set(SORTING_LIB_SOURCES
 add_library(sorting_lib STATIC ${SORTING_LIB_SOURCES})
 target_link_libraries(sorting_lib PRIVATE Threads::Threads)
 
-# Main executables
-add_project_executable(data_generator tests/data_generator.cpp)
-add_project_executable(optimal_arity_finder tests/optimal_arity_finder.cpp)
-add_project_executable(experiment_runner tests/experiment_runner.cpp)
+# Main executables - UPDATED PATHS
+add_project_executable(data_generator experiments/data_generator.cpp)
+add_project_executable(optimal_arity_finder experiments/optimal_arity_finder.cpp)
+add_project_executable(experiment_runner experiments/experiment_runner.cpp)
+
+# Additional experiment executables
+add_project_executable(comparison_experiment experiments/comparison_experiment.cpp)
+add_project_executable(mergesort_experiment experiments/mergesort_experiment.cpp)
+add_project_executable(quicksort_experiment experiments/quicksort_experiment.cpp)
 
 # Test executables (don't need the bin/ directory)
 add_executable(test_mergesort tests/test_mergesort.cpp)
@@ -127,9 +132,9 @@ add_custom_target(run_experiments_all
     COMMENT "Running experiments on all data sizes"
 )
 
-# Visualization target
+# Visualization target - UPDATED PATH
 add_custom_target(visualize_results
-    COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/tests/visualize_results.py
+    COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/experiments/visualize_results.py
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
     COMMENT "Generating visualizations from experiment results"
 )
